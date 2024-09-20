@@ -36,3 +36,106 @@
     transform: rotate(360deg);
   }
 }
+.slick-dots li button:before {
+  color: #2196f3; /* Change dot color */
+  font-size: 12px; /* Change dot size */
+}
+
+.slick-dots li.slick-active button:before {
+  color: #2196f3; /* Change active dot color */
+}
+.slider{
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  box-sizing: border-box;
+  gap: 5rem;
+  align-items: center;
+  margin-bottom: 5rem;
+  position:absolute;
+}
+.doctor-slider{
+  display: flex;
+  gap:2rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 8rem;
+  position: absolute;
+  
+}
+@media screen and (max-width: 900px) {
+  .doctor-slider{
+    
+    padding-left: 3rem;
+    padding-right: 0rem;
+  }
+  
+}
+.MainFooterClass{
+  height: 26.5rem;
+  background: #1B3C74;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.alignItemsInLine{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: -10rem;
+}
+.giveSpace{
+  display: grid;
+  gap: 8rem;
+  position: relative;
+  top: 2rem;
+}
+.socialMediaStyling{
+  display: flex;
+  gap: 2rem;
+}
+.AnchorStyling{
+  display: flex;
+  gap: 5rem;
+  position: relative;
+  top: 2rem;
+}
+.AnchorSub{
+  display: grid;
+}
+.AnchorLstyling{
+  color: inherit;
+  text-decoration: none; 
+  font-family: 'Roboto',sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  text-decoration: none;
+  color: #FFFFFF;
+  
+}
+.Copyright{
+  width: 75%;
+  font-family: 'Poppins',sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  color: #FFFFFF;
+  border-top: 2px solid black;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 1rem;
+
+
+}
+.svgStyling{
+  display: flex;
+  justify-content: flex-start;
+}
