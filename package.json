@@ -2,7 +2,7 @@
   "name": "medifyy",
   "version": "0.1.0",
   "private": true,
-  "main":"index.js",
+  "main": "index.js",
   "homepage": "./",
   "dependencies": {
     "@emotion/react": "^11.13.3",
@@ -14,7 +14,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
-    "react": "^18.3.1",
+    "react": "^17.0.2",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
