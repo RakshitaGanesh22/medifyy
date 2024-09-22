@@ -15,7 +15,7 @@ export default function MobileBanner() {
         <Box>
             <Grid2 container sx={{ display: "flex", flexDirection: isSmallScreen ? "column" : "row", alignItems: "center", justifyContent: "center", background: theme => theme.palette.primary.main }}>
                 {!isSmallScreen && (
-                    <Grid2 container sx={{ display: "flex", gap: isSmallScreen ? "0rem" : "2rem", alignItems: "center", marginLeft: isSmallScreen ? "0rem" : "5rem", marginRight: isSmallScreen ? "0rem" : "5rem" }}>
+                    <Grid2 container sx={{ display: "flex", gap: isSmallScreen ? "0rem" : "2rem", alignItems: "center", marginLeft: isSmallScreen ? "0rem" : "5rem", marginRight: isSmallScreen ? "0rem" : "5rem",zIndex:"1" }}>
                         <Grid2 sx={{ marginTop: "10rem", position: "relative", zIndex: "1", left: "8rem" }}>
                             <Box
                                 component="img"
@@ -83,7 +83,7 @@ export default function MobileBanner() {
                     </Box>
                 </Grid2>
             </Grid2>
-            <Box sx={{ position: isSmallScreen ? "static" : "relative", top: isSmallScreen ? "0rem" : "-8rem", zIndex: "100" }}>
+            <Box sx={{ position: "relative", zIndex: "10000",top:isSmallScreen ? "0rem":"-8rem",overflow:"hidden",clipPath: "inset(0px)"}}>
                 <Footer />
             </Box>
         </Box>

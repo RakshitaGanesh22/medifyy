@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Button, IconButton, Stack, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Medify from '../asset/medify.png'; // Ensure the image path is correct
-
+import Medify from '../asset/medify.png'; 
+import { useNavigate } from 'react-router-dom';
 export default function NavBar() {
-    const [drawerOpen, setDrawerOpen] = useState(false); // State to manage drawer visibility
-    const isSmallScreen = useMediaQuery('(max-width:900px)'); // Detect small screen
+    const [drawerOpen, setDrawerOpen] = useState(false);
+    const navigate = useNavigate();
+    const isSmallScreen = useMediaQuery('(max-width:900px)'); 
 
     // Toggle the drawer open/close
     const toggleDrawer = (open) => (event) => {
@@ -53,7 +54,7 @@ export default function NavBar() {
     return (
         <AppBar position="static" sx={{ background: theme => theme.palette.primary.main }}>
             <Toolbar sx={{ direction:'row', display: 'flex', justifyContent: isSmallScreen?'space-between':'space-around' }}>
-            <IconButton sx={{ height: '2rem', width: '6rem', '@media(max-width:720px)': { height: '1.5rem', width: '5rem' } }}>
+            <IconButton onClick={() => navigate('/')} sx={{ height: '2rem', width: '6rem', '@media(max-width:720px)': { height: '1.5rem', width: '5rem' } }}>
                 <img src={Medify} alt="medify" height="27px" width="94px" />
             </IconButton>
                 {/* Logo and Hamburger Menu for small screens */}

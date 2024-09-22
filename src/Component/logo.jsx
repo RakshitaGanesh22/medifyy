@@ -1,9 +1,13 @@
 import { Typography, Box, useMediaQuery,Stack,Button } from '@mui/material';
 import { Grid2 } from '@mui/material';
 import Doctor from "../asset/mainDoctor.png";
+import SearchCard from './SearchCard';
+import { useNavigate } from 'react-router-dom';
 export default function Logo(){
     const isSmallScreen = useMediaQuery('(max-width:800px)');
+    const navigate = useNavigate();
     return(
+        <Box>
         <Box sx={{
             display:'flex',
             flexDirection:isSmallScreen?'column':'row',
@@ -29,7 +33,7 @@ export default function Logo(){
                 }}>Skip the travel! Find Online</Typography>
                 <Typography variant='h1' sx={{fontWeight:'500'}}>Medical <span style={{color:'#2AA7FF'}}>Centers</span></Typography>
                 <Typography color='#5C6169'>Connect instantly with a 24x7 specialist or choose to video visit a particular doctor.</Typography>
-                <Button sx={{color:'white',background:'#2AA7FF',
+                <Button onClick={()=>navigate('/Booking')} sx={{color:'white',background:'#2AA7FF',
                     width:isSmallScreen?'150px':'200px',
                     height:isSmallScreen?'40px':'50px'}}>Find Centers</Button>
                 </Stack>
@@ -39,8 +43,11 @@ export default function Logo(){
                     textAlign:isSmallScreen?'center':'left',
 
                 }}>
-                <img src={Doctor} style={{boxShadow: '0px 15px 20px 0px #00000059'}}alt="mainDoctor" height={isSmallScreen?'600px':'750px'} width={isSmallScreen?'500px':'650px'} />
+                <img src={Doctor} style={{boxShadow:isSmallScreen? '0px 15px 20px 0px #00000059':"none"}}alt="mainDoctor" height={isSmallScreen?'600px':'750px'} width={isSmallScreen?'500px':'650px'} />
             </Grid2>
+            
+        </Box>
+        <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:isSmallScreen?"0rem":"-20rem",padding:'20px',boxSizing:'border-box'}}><SearchCard /></Box>
         </Box>
     )
 }

@@ -1,38 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 import { ThemeProvider } from '@mui/material/styles';
-import MainBanner from "./Component/Banner";
 import theme from './ThemeProvider';
-import NavBar from './Component/NavBar';
-import Logo from './Component/logo';
-import SearchCard from './Component/SearchCard';
-import CardWithCarousal from './Component/CardWithCarousal';
-import Specialization from './Component/Specialization';
-import MedicalSpecialist from './Component/MedicalSpecialist';
-import LatestNews from './Component/LatestNews';
-import Caring from './Component/Caring';
-import OurFamily from './Component/OurFamily';
-import Question from './Component/Question';
-import MobileBanner from './Component/smallBanner';
-import Footer from './Component/Footer';
+import { LocationProvider } from './Location';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './Pages/HomePage';
+import BookingPage from './Pages/Booking';
+import CommonCard from './Component/CommonCArd';
+import SmallSearchBar from './Component/smallSearchBar';
 function App() {
   return (
+    
+      <LocationProvider>
     <ThemeProvider theme={theme}>
     <div className="App">
-      <MainBanner/>
-      <NavBar />  
-      <Logo /> 
-      <SearchCard />
-      <CardWithCarousal />
-      <Specialization />
-      <MedicalSpecialist />
-      <Caring />
-      <LatestNews />
-      <OurFamily />
-      <Question />
-      <MobileBanner />
+    <Router>
+    <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/Booking" element={<BookingPage/>} /> 
+    </Routes>
+    </Router>
       </div>
     </ThemeProvider>
+    </LocationProvider>
+      
+    
   );
 }
 

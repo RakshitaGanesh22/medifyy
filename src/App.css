@@ -52,7 +52,8 @@
   gap: 5rem;
   align-items: center;
   margin-bottom: 5rem;
-  position:absolute;
+  position:relative;
+  left: 6rem;
 }
 .doctor-slider{
   display: flex;
@@ -71,6 +72,10 @@
     padding-left: 3rem;
     padding-right: 0rem;
   }
+  .slider{
+    position:relative;
+  left: 1rem;
+  }
   
 }
 .MainFooterClass{
@@ -81,6 +86,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  z-index: 100000;
 
 }
 .alignItemsInLine{
