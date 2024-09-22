@@ -32,7 +32,7 @@ export default function NavBar() {
                 width: '130px',
                 height: '40px',
                 borderRadius: '0.5rem'
-            }}>My Bookings</Button>
+            }} onClick={() => navigate('/appointment')}>My Bookings</Button>
         </Stack>
     );
 
@@ -52,12 +52,11 @@ export default function NavBar() {
     );
 
     return (
-        <AppBar position="static" sx={{ background: theme => theme.palette.primary.main }}>
+        <AppBar position="static" sx={{ background: "white"}}>
             <Toolbar sx={{ direction:'row', display: 'flex', justifyContent: isSmallScreen?'space-between':'space-around' }}>
             <IconButton onClick={() => navigate('/')} sx={{ height: '2rem', width: '6rem', '@media(max-width:720px)': { height: '1.5rem', width: '5rem' } }}>
                 <img src={Medify} alt="medify" height="27px" width="94px" />
             </IconButton>
-                {/* Logo and Hamburger Menu for small screens */}
                 {isSmallScreen ? (
                     <>
                         <IconButton edge="start" color="inherit" onClick={toggleDrawer(true)}>
@@ -68,7 +67,6 @@ export default function NavBar() {
                         </Drawer>
                     </>
                 ) : (
-                    // Navigation items for larger screens
                     drawerContent
                 )}
             </Toolbar>

@@ -10,9 +10,10 @@ export function LocationProvider({ children }) {
   const [state,setState]=useState([]);
   const [city,setCity]=useState([]);
   const[cardData,setCardData]=useState(null);
+  const[cardArray,setCardArray]=useState([]);
 
   return (
-    <LocationContext.Provider value={{ stateName, setStateName, cityName, setCityName,state,setState,city,setCity,cardData,setCardData }}>
+    <LocationContext.Provider value={{ stateName, setStateName, cityName, setCityName,state,setState,city,setCity,cardData,setCardData ,cardArray,setCardArray}}>
       {children}
     </LocationContext.Provider>
   );

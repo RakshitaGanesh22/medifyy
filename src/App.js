@@ -6,8 +6,7 @@ import { LocationProvider } from './Location';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './Pages/HomePage';
 import BookingPage from './Pages/Booking';
-import CommonCard from './Component/CommonCArd';
-import SmallSearchBar from './Component/smallSearchBar';
+import MyBooking from './Pages/MyBooking';
 function App() {
   return (
     
@@ -17,9 +16,11 @@ function App() {
     <Router>
     <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/Booking" element={<BookingPage/>} /> 
+        <Route path="/Booking" element={<BookingPage/>} />
+        <Route path="/appointment" element={<MyBooking/>} />
     </Routes>
     </Router>
+    {/* <ABanner/> */}
       </div>
     </ThemeProvider>
     </LocationProvider>

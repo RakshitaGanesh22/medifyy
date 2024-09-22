@@ -3,8 +3,10 @@ import hospital from "../asset/hospitalFinal.png";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import { useState } from "react";
 import { Padding } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 export default function CommonCard(prop) {
+    const navigate = useNavigate();
     console.log(prop.item);
     const ProviderId=prop.item["Provider ID"];
     const hospitalName=prop.item["Hospital Name"];
@@ -15,6 +17,8 @@ export default function CommonCard(prop) {
     const [selectedDay, setSelectedDay] = useState(null); // Track the selected day
     const isSmallScreen = useMediaQuery('(max-width:1000px)');
     const[open,setOpen]=useState(false);
+    const [time,setTime]=useState(null);
+    const [date,setDate]=useState(null);
     const availableDays = [
         { name: "Today", slots: 12 },
         { name: "Tomorrow", slots: 6 },
@@ -54,6 +58,25 @@ export default function CommonCard(prop) {
             { timeOfDay: "Evening", times: ["5:00 PM", "5:30 PM", "6:00 PM"] }
         ]
     };
+    function handleSetting(day,time){
+        console.log(day,time);
+        setDate(day);
+        setTime(time);
+        const cardData1 = [
+            {   id:ProviderId,
+                 image: hospital, 
+                hospitalName: hospitalName, 
+                place: place, 
+                Title: title, 
+                Fee: "₹500", 
+                Avilability: "Available Today", 
+                Rating: ratings,
+                Time:time,
+            Day:day }
+        ];
+        localStorage.setItem(ProviderId, JSON.stringify(cardData1));
+        navigate("/appointment")
+    }
     
 
     const cardData = [
@@ -88,7 +111,10 @@ export default function CommonCard(prop) {
                 <Typography>{slot.timeOfDay}:&nbsp;</Typography>
                 <Box sx={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
                     {slot.times.map((time) => (
-                        <Chip key={time} label={time} sx={{ width: "90px", height: "34px", borderRadius: "2px", border: "1px solid #2AA7FF", color: "#2AA7FF", backgroundColor: "white", margin: "0.5rem", fontWeight: "600" }} />
+                        <Button onClick={()=>handleSetting(day,time)}>
+                            <Chip key={time} label={time} sx={{ width: "90px", height: "34px", borderRadius: "2px", border: "1px solid #2AA7FF", color: "#2AA7FF", backgroundColor: "white", margin: "0.5rem", fontWeight: "600" }} />
+                        </Button>
+                        
                     ))}
                 </Box>
             </Box>
@@ -106,11 +132,11 @@ export default function CommonCard(prop) {
                         alt="Hospital Image"
                         sx={{ width: isSmallScreen ? "100px" : "124px", height: isSmallScreen ? "100px" : "124px", objectFit: "contain", marginTop: "-6rem" }}
                     />
-                    <CardContent sx={{ textAlign: "start", display: "grid", gap: "0.5rem" }}>
+                    <CardContent sx={{ textAlign: "start", display: "flex",flexDirection: "column", gap: "0.5rem",flexWrap: "wrap" }}>
                         <Typography sx={{ fontWeight: "600", fontSize: isSmallScreen ? "1rem" : "1.2rem", color: "#14BEF0" }}>{hospitalName}</Typography>
                         <Typography>
-                            <Typography sx={{ fontWeight: "700", color: "#414146" }}>{place}</Typography>
-                            <Typography>{Title}</Typography>
+                            <Typography sx={{ fontWeight: "700", color: "#414146",display:"flex",flexWrap:"wrap",gap:"0.5rem" }}>{place}</Typography>
+                            <Typography sx={{ display:"flex",flexWrap:"wrap"}}>{Title}</Typography>
                         </Typography>
                         <Typography sx={{ borderBottom: "1px dashed black", marginBottom: "1rem" }}>
                             <span style={{ color: "#02A401", fontWeight: "700" }}>Free&nbsp;</span> 
